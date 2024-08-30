@@ -1,13 +1,12 @@
 package stepdefs;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.When;
-import pages.*;
-
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.testng.Assert;
+import pages.*;
 
 import java.util.Map;
 import java.util.Set;
@@ -73,7 +72,7 @@ public class MyStepdefs {
         }
     }
 
-    @And("the location display should show the following pins:")
+    @Then("the location display should show the following pins:")
     public void theLocationDisplayShouldShowTheFollowingPins(DataTable dataTable) {
         for (String element : dataTable.asList()) {
             switch (element) {
@@ -101,7 +100,7 @@ public class MyStepdefs {
         }
     }
 
-    @And("the user clicks on the Category menu item")
+    @When("the user clicks on the Category menu item")
     public void theUserClicksOnTheCategoryMenuItem() {
         homePage.clickCategoryTab();
     }
@@ -135,7 +134,7 @@ public class MyStepdefs {
         }
     }
 
-    @And("the user scroll to Fresh Veg category")
+    @When("the user scroll to Fresh Veg category")
     public void theUserScrollToFreshVegCategory() {
         homePage.pageIsLoaded();
         homePage.swipeToFreshVeg();
@@ -146,7 +145,7 @@ public class MyStepdefs {
         Assert.assertEquals(homePage.freshVegCount(), arg0);
     }
 
-    @And("the user click on View All Fresh Veg")
+    @When("the user click on View All Fresh Veg")
     public void theUserClickOnViewAllFreshVeg() {
         homePage.clickFreshVegViewAll();
     }
@@ -183,7 +182,7 @@ public class MyStepdefs {
         Assert.assertEquals(productPage.getProductPrice(), data.get("Product Price"));
     }
 
-    @And("the product screen should display with following buttons")
+    @Then("the product screen should display with following buttons")
     public void theProductScreenShouldDisplayWithFollowingButtons(DataTable dataTable) {
         for (String element : dataTable.asList()) {
             switch (element) {
@@ -243,7 +242,7 @@ public class MyStepdefs {
         specificCategoryPage.clickCartButton();
     }
 
-    @And("the user select {string} location")
+    @Given("the user select {string} location")
     public void theUserSelectLocation(String arg0) {
         switch (arg0) {
             case "all":

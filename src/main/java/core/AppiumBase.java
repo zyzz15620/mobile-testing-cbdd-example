@@ -11,7 +11,15 @@ import java.time.Duration;
 public class AppiumBase {
     private static AndroidDriver driver;
     private static WebDriverWait webDriverWait;
-    final  String PHONE_UID = "RFCW502F4BR";
+    final String PHONE_UID = "RFCW502F4BR";
+
+    public static AndroidDriver getDriver() {
+        return driver;
+    }
+
+    public static WebDriverWait getWebDriverWait() {
+        return webDriverWait;
+    }
 
     public void createDriver() throws MalformedURLException {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
@@ -25,15 +33,9 @@ public class AppiumBase {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
     }
 
-    public void closeApp(){
-        if(null!=driver) {
+    public void closeApp() {
+        if (null != driver) {
             driver.quit();
         }
-    }
-    public static AndroidDriver getDriver() {
-        return driver;
-    }
-    public static WebDriverWait getWebDriverWait() {
-        return webDriverWait;
     }
 }

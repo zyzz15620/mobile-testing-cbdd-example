@@ -20,7 +20,7 @@ public class ServiceHooks {
     @After
     public void afterHook(Scenario scenario) {
         if (scenario.isFailed()) {
-            scenario.attach(((TakesScreenshot)AppiumBase.getDriver()).getScreenshotAs(OutputType.BYTES), "png", "image.png");
+            scenario.attach(((TakesScreenshot) AppiumBase.getDriver()).getScreenshotAs(OutputType.BYTES), "png", "image.png");
         }
         appiumBase.closeApp();
     }

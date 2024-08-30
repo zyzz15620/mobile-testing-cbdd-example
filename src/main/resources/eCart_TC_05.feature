@@ -2,7 +2,7 @@ Feature: Verification of products detail in cart screen
   @TC05
   Scenario Outline: Verify cart detail
     Given the user has launched the eCart App
-    When the user navigates to the Get Started screen by clicking next
+    And the user navigates to the Get Started screen by clicking next
     And the user select "all" location
     And the user clicks on the Category menu item
     And the user clicks on the category = "<category>"
@@ -10,7 +10,7 @@ Feature: Verification of products detail in cart screen
     And the user clicks Add to Cart the product that contains = "<key>"
     And the user clicks Add Quantity for the product that contains = "<key>"
     And the user clicks Cart icon on top screen
-    And the user select "370405" location
+    When the user select "370405" location
     Then the cart should display the following details:
       | Deliver to         | 370405                         |
       | Product Name       | Kurkure Namkeen - Masala Munch, |

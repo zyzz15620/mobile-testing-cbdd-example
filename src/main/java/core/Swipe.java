@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.Arrays;
+import java.util.List;
 
 public class Swipe {
     public void swipe(int startX, int startY, int endX, int endY, AndroidDriver driver) {
@@ -21,7 +22,7 @@ public class Swipe {
         dragNDrop.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
         dragNDrop.addAction(finger.createPointerMove(Duration.ofSeconds(1), PointerInput.Origin.viewport(), endX, endY));
         dragNDrop.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
-        driver.perform(Arrays.asList(dragNDrop));
+        driver.perform(List.of(dragNDrop));
     }
 
     public void swipeMobileUp(AndroidDriver driver) {

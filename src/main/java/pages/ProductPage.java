@@ -1,16 +1,15 @@
 package pages;
 
 import core.AppiumBase;
+import core.Swipe;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import core.Swipe;
 
 public class ProductPage extends AppiumBase {
-    public ProductPage() {PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);}
     Swipe swipe = new Swipe();
-    @FindBy(id= "wrteam.multivendor.customer:id/tvProductName")
+    @FindBy(id = "wrteam.multivendor.customer:id/tvProductName")
     WebElement productName;
     @FindBy(xpath = "//android.widget.RelativeLayout[@resource-id=\"wrteam.multivendor.customer:id/lytMainPrice\"]\n" +
             "//android.widget.TextView[@resource-id=\"wrteam.multivendor.customer:id/tvPrice\"]")
@@ -21,25 +20,34 @@ public class ProductPage extends AppiumBase {
     WebElement goToCartButton;
     @FindBy(id = "wrteam.multivendor.customer:id/lytSimilar")
     WebElement similarProduct;
+    public ProductPage() {
+        PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);
+    }
 
     public Boolean isProductDisplayed() {
         return productName.isDisplayed();
     }
+
     public Boolean isProductPriceDisplayed() {
         return productPrice.isDisplayed();
     }
+
     public Boolean isAddToCartButtonDisplayed() {
         return addToCartButton.isDisplayed();
     }
+
     public Boolean isGoToCartButtonDisplayed() {
         return goToCartButton.isDisplayed();
     }
+
     public Boolean isSimilarProductDisplayed() {
         return similarProduct.isDisplayed();
     }
+
     public String getProductName() {
         return productName.getText();
     }
+
     public String getProductPrice() {
         return productPrice.getText();
     }

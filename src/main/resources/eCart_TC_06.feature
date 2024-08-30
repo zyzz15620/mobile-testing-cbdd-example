@@ -2,7 +2,7 @@ Feature: Verification of products detail in payment screen
   @TC06
   Scenario Outline: Verify Payment detail
     Given the user has launched the eCart App
-    When the user navigates to the Get Started screen by clicking next
+    And the user navigates to the Get Started screen by clicking next
     And the user select "all" location
     And the user clicks on the Category menu item
     And the user clicks on the category = "<category>"
@@ -14,7 +14,7 @@ Feature: Verification of products detail in payment screen
     And the user clicks Continue on cart page
     And the user clicks Login in login page
     And the user clicks Continue on cart page
-    And the user clicks Continue with address
+    When the user clicks Continue with address
     Then the Payment page should display the following details:
       | Pin Code       | 370465  |
       | Time           | Preferred Delivery Date / Time |
