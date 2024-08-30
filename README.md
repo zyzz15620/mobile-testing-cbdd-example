@@ -1,8 +1,4 @@
 ## Overview
-- This is my Fsoft Academy Assignment Automation Testing Mobile
-- Using Java language following CBDD framework
-- Application: Banggood
-
-## How to open
-- Use intelliJ or similar IDE to open the folder.
-- Use Runner.java to execute the tests
+- My personal project to showcase how I develop automation testing for mobile application
+- Using Appium and TestNG following CBDD framework
+- Application: eCart Multi Vendor Customer (https://play.google.com/store/apps/details?id=wrteam.multivendor.customer&hl=en)
