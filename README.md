@@ -15,4 +15,5 @@ There are 7 test cases (can be find in [here](test-case.md)), the test object is
 Below video record presents the test script execution:
 ![Test screen record](demo-run.gif)
 
-When finished, an report will be exported and look like this (![.html](cucumber-sample-reports.html) file that can be open with browser):
+When finished, an report will be exported and look like this: 
+![Report screen shot](sample-report-screenshot.png)
