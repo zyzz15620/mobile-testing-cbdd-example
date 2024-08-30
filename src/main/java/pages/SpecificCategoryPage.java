@@ -8,11 +8,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import stepdefs.Swipe;
+import core.Swipe;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import static core.WaitTo.waitTillVisibleAndClick;
 
 public class SpecificCategoryPage extends AppiumBase {
     public SpecificCategoryPage() {PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);}
@@ -26,7 +28,7 @@ public class SpecificCategoryPage extends AppiumBase {
     }
     public void clickOnProductContains(String productName) {
         By product = AppiumBy.xpath("//android.widget.TextView[@resource-id=\"wrteam.multivendor.customer:id/productName\" and contains(@text, '" + productName + "')]");
-        getWebDriverWait().until(ExpectedConditions.visibilityOfElementLocated(product)).click();
+        waitTillVisibleAndClick((WebElement) product);
     }
     public int countProduct(int maxSwipe) {
         Set<String> productNames = new HashSet<>();
@@ -45,7 +47,7 @@ public class SpecificCategoryPage extends AppiumBase {
                 "//ancestor::android.widget.RelativeLayout[@resource-id=\"wrteam.multivendor.customer:id/lytPrice\"]\n" +
                 "//following-sibling::android.widget.LinearLayout\n" +
                 "//android.widget.Button[@resource-id=\"wrteam.multivendor.customer:id/btnAddToCart\"]");
-        getWebDriverWait().until(ExpectedConditions.visibilityOfElementLocated(product)).click();
+        waitTillVisibleAndClick((WebElement) product);
     }
     public void addQuantityProductContains(String productName) {
         By product = AppiumBy.xpath("" +
@@ -53,9 +55,9 @@ public class SpecificCategoryPage extends AppiumBase {
                 "//ancestor::android.widget.RelativeLayout[@resource-id=\"wrteam.multivendor.customer:id/lytPrice\"]\n" +
                 "//following-sibling::android.widget.LinearLayout\n" +
                 "//android.widget.ImageButton[@resource-id=\"wrteam.multivendor.customer:id/btnAddQuantity\"]");
-        getWebDriverWait().until(ExpectedConditions.visibilityOfElementLocated(product)).click();
+        waitTillVisibleAndClick((WebElement) product);
     }
     public void clickCartButton() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(cartButton)).click();
+        waitTillVisibleAndClick(cartButton);
     }
 }

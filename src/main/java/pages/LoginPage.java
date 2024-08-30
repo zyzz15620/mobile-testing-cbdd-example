@@ -7,6 +7,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import static core.WaitTo.waitTillVisibleAndClick;
+import static core.WaitTo.waitTillVisibleAndIsDisplayed;
+
 public class LoginPage extends AppiumBase {
     public LoginPage() {PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);}
 
@@ -23,24 +26,24 @@ public class LoginPage extends AppiumBase {
 
     //is Displayed
     public Boolean loginButtonIsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(loginButton)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(loginButton);
     }
     public Boolean signUpButtonIsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(signUpButton)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(signUpButton);
     }
     public Boolean forgotPasswordButtonIsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(forgotPasswordButton)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(forgotPasswordButton);
     }
     public Boolean mobileFieldIsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(mobileField)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(mobileField);
     }
     public Boolean passwordFieldIsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(passwordField)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(passwordField);
     }
 
     //click
     public void clickLoginButton() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(loginButton)).click();
+        waitTillVisibleAndClick(loginButton);
     }
 
 }

@@ -7,9 +7,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import static core.WaitTo.waitTillVisibleAndClick;
+import static core.WaitTo.waitTillVisibleAndIsDisplayed;
+
 public class WelcomePage extends AppiumBase {
     public WelcomePage() {PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);}
-
     @FindBy(id = "wrteam.multivendor.customer:id/tvSkip")
     private WebElement skipButton;
     @FindBy(id = "wrteam.multivendor.customer:id/tvNext")
@@ -19,20 +21,20 @@ public class WelcomePage extends AppiumBase {
 
     //Display
     public Boolean skipButtonIsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(skipButton)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(skipButton);
     }
     public Boolean nextButtonIsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(nextButton)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(nextButton);
     }
     public Boolean lookForThingsAroundYouTextIsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(lookForThingsAroundYouText)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(lookForThingsAroundYouText);
     }
 
     //Click
     public void clickSkipButton() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(skipButton)).click();
+        waitTillVisibleAndClick(skipButton);
     }
     public void clickNextButton() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(nextButton)).click();
+        waitTillVisibleAndClick(nextButton);
     }
 }

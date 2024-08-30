@@ -7,12 +7,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import stepdefs.Swipe;
+import core.Swipe;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import static core.WaitTo.waitTillVisibleAndClick;
 
 public class ProfilePage extends AppiumBase {
     public ProfilePage() {PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);}
@@ -31,12 +32,8 @@ public class ProfilePage extends AppiumBase {
     @FindBy(id = "wrteam.multivendor.customer:id/tvMenuWalletHistory")
     private WebElement walletHistory;
 
-
-
-
-
     public void clickWelcomeGuest() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(welcomeGuest)).click();
+        waitTillVisibleAndClick(welcomeGuest);
     }
 
     public Set<String> getProfileSettings() {
@@ -47,7 +44,6 @@ public class ProfilePage extends AppiumBase {
             for (WebElement productElement : productElements) {
                 productNames.add(productElement.getText());
             }
-
             swipe.swipeMobileUp(getDriver());
 
             List<WebElement> productElements2 = getDriver().findElements(AppiumBy.xpath("" +
@@ -56,7 +52,6 @@ public class ProfilePage extends AppiumBase {
             for (WebElement productElement : productElements2) {
                 productNames.add(productElement.getText());
             }
-
             return productNames;
         }
     }

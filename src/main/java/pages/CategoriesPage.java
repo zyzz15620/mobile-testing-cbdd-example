@@ -5,13 +5,13 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import stepdefs.Swipe;
+import core.Swipe;
+
+import static core.WaitTo.waitTillVisibleAndClick;
+import static core.WaitTo.waitTillVisibleAndIsDisplayed;
 
 public class CategoriesPage extends AppiumBase {
     public CategoriesPage() {PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);}
-    Swipe swipe = new Swipe();
-
     @FindBy(xpath = "//android.widget.TextView[@resource-id=\"wrteam.multivendor.customer:id/tvTitle\" and @text=\"Coffee Product\"]")
     private WebElement coffeeProduct;
     @FindBy(xpath = "//android.widget.TextView[@resource-id=\"wrteam.multivendor.customer:id/tvTitle\" and @text=\" Fast Food\"]")
@@ -27,43 +27,41 @@ public class CategoriesPage extends AppiumBase {
 
     //Display
     public Boolean coffeeProductIsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(coffeeProduct)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(coffeeProduct);
     }
     public Boolean fastFoodIsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(fastFood)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(fastFood);
     }
     public Boolean homeSuppliesIsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(homeSupplies)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(homeSupplies);
     }
     public Boolean beveragesIsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(beverages)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(beverages);
     }
     public Boolean babyNeedsIsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(babyNeeds)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(babyNeeds);
     }
     public Boolean vegetablesIsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(vegetables)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(vegetables);
     }
 
     //Click
     public void clickCoffeeProduct() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(coffeeProduct)).click();
+        waitTillVisibleAndClick(coffeeProduct);
     }
     public void clickFastFood() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(fastFood)).click();
+        waitTillVisibleAndClick(fastFood);
     }
     public void clickHomeSupplies() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(homeSupplies)).click();
+        waitTillVisibleAndClick(homeSupplies);
     }
     public void clickBeverages() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(beverages)).click();
+        waitTillVisibleAndClick(beverages);
     }
     public void clickBabyNeeds() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(babyNeeds)).click();
+        waitTillVisibleAndClick(babyNeeds);
     }
     public void clickVegetables() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(vegetables)).click();
+        waitTillVisibleAndClick(vegetables);
     }
-
-
 }

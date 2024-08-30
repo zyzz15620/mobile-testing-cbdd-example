@@ -11,11 +11,12 @@ import java.time.Duration;
 public class AppiumBase {
     private static AndroidDriver driver;
     private static WebDriverWait webDriverWait;
+    final  String PHONE_UID = "RFCW502F4BR";
 
     public void createDriver() throws MalformedURLException {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability("platformName", "Android");
-        desiredCapabilities.setCapability("appium:udid", "RFCW502F4BR");
+        desiredCapabilities.setCapability("appium:udid", PHONE_UID);
         desiredCapabilities.setCapability("appium:appActivity", "wrteam.multivendor.customer.activity.SplashActivity");
         desiredCapabilities.setCapability("appium:appPackage", "wrteam.multivendor.customer");
         desiredCapabilities.setCapability("appium:automationName", "UiAutomator2");

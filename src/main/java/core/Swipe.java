@@ -1,4 +1,4 @@
-package stepdefs;
+package core;
 
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
@@ -17,7 +17,6 @@ public class Swipe {
     public void swipe(int startX, int startY, int endX, int endY, AndroidDriver driver) {
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
         Sequence dragNDrop = new Sequence(finger, 1);
-
         dragNDrop.addAction(finger.createPointerMove(Duration.ofSeconds(0), PointerInput.Origin.viewport(), startX, startY));
         dragNDrop.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
         dragNDrop.addAction(finger.createPointerMove(Duration.ofSeconds(1), PointerInput.Origin.viewport(), endX, endY));
@@ -27,18 +26,18 @@ public class Swipe {
 
     public void swipeMobileUp(AndroidDriver driver) {
         Dimension size = driver.manage().window().getSize();
-        int starty = (int) (size.height * 0.8);
-        int endy = (int) (size.height * 0.2);
-        int startx = size.width / 2;
-        swipe(startx, starty, startx, endy, driver);
+        int startY = (int) (size.height * 0.8);
+        int endY = (int) (size.height * 0.2);
+        int startX = size.width / 2;
+        swipe(startX, startY, startX, endY, driver);
     }
 
     public void swipeMobileUpInBox(WebElement box, AndroidDriver driver) {
         Dimension size = box.getSize();
-        int starty = (int) (size.height * 0.8);
-        int endy = (int) (size.height * 0.2);
-        int startx = size.width / 2;
-        swipe(startx, starty, startx, endy, driver);
+        int startY = (int) (size.height * 0.8);
+        int endY = (int) (size.height * 0.2);
+        int startX = size.width / 2;
+        swipe(startX, startY, startX, endY, driver);
     }
 
     public void swipeInBoxUntilElementAppear(By target, int maxSwipes, AndroidDriver driver) {

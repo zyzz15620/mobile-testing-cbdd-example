@@ -8,7 +8,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import stepdefs.Swipe;
+import core.Swipe;
+
+import static core.WaitTo.waitTillVisibleAndClick;
 
 public class HomePage extends AppiumBase {
     public HomePage() {PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);}
@@ -26,13 +28,13 @@ public class HomePage extends AppiumBase {
 
     //Click
     public void clickCategoryTab() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(categoryTab)).click();
+        waitTillVisibleAndClick(categoryTab);
     }
     public void clickProfileTab() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(profileTab)).click();
+        waitTillVisibleAndClick(profileTab);
     }
     public void clickWishListTab() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(wishListTab)).click();
+        waitTillVisibleAndClick(wishListTab);
     }
 
     //Swipe
@@ -52,15 +54,15 @@ public class HomePage extends AppiumBase {
                 "//android.widget.FrameLayout")).size();
     }
     public void clickFreshVegViewAll() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("" +
+        waitTillVisibleAndClick((WebElement) AppiumBy.xpath("" +
                 "//android.widget.TextView[@resource-id=\"wrteam.multivendor.customer:id/tvSubTitle\" and @text=\"Vegetables Products\"]\n" +
-                "//following-sibling::android.widget.TextView[@resource-id=\"wrteam.multivendor.customer:id/tvMore\"]"))).click();
+                "//following-sibling::android.widget.TextView[@resource-id=\"wrteam.multivendor.customer:id/tvMore\"]"));
         //Tại vì có nhiều nút view all nên phải dùng xpath để xác định chính xác nút view all của fresh veg
     }
     public void clickCoffeeViewAll() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("" +
+        waitTillVisibleAndClick((WebElement) AppiumBy.xpath("" +
                 "//android.widget.TextView[@resource-id=\"wrteam.multivendor.customer:id/tvSubTitle\" and @text=\"Coffee Products\"]\n" +
-                "//following-sibling::android.widget.TextView[@resource-id=\"wrteam.multivendor.customer:id/tvMore\"]"))).click();
+                "//following-sibling::android.widget.TextView[@resource-id=\"wrteam.multivendor.customer:id/tvMore\"]"));
         //Tại vì có nhiều nút view all nên phải dùng xpath để xác định chính xác nút view all của fresh veg
     }
     public void pageIsLoaded() {

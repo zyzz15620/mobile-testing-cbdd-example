@@ -6,7 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import stepdefs.Swipe;
+import core.Swipe;
+
+import static core.WaitTo.waitTillVisibleAndGetText;
 
 public class PaymentPage extends AppiumBase {
     public PaymentPage() {
@@ -33,31 +35,31 @@ public class PaymentPage extends AppiumBase {
 
     //get details
     public String getProductName() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(productName)).getText();
+        return waitTillVisibleAndGetText(productName);
     }
     public String getAddress() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(address)).getText();
+        return waitTillVisibleAndGetText(address);
     }
     public String getPinCode() {
         return getAddress().substring(getAddress().length() - 6);
     }
     public String getTime() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(time)).getText();
+        return waitTillVisibleAndGetText(time);
     }
     public String getGrandTotal() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(grandTotal)).getText();
+        return waitTillVisibleAndGetText(grandTotal);
     }
     public String getSubTotal() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(subTotal)).getText();
+        return waitTillVisibleAndGetText(subTotal);
     }
     public String getDeliveryCharge() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(deliveryCharge)).getText();
+        return waitTillVisibleAndGetText(deliveryCharge);
     }
     public String getSavedAmount() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(savedAmount)).getText();
+        return waitTillVisibleAndGetText(savedAmount);
     }
     public String getTotalPrice() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(totalPrice)).getText();
+        return waitTillVisibleAndGetText(totalPrice);
     }
 
 }

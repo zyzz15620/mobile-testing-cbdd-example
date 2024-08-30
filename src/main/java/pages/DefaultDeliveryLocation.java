@@ -7,6 +7,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import static core.WaitTo.waitTillVisibleAndClick;
+import static core.WaitTo.waitTillVisibleAndIsDisplayed;
+
 public class DefaultDeliveryLocation extends AppiumBase {
     public DefaultDeliveryLocation() {PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);}
 
@@ -33,57 +36,57 @@ public class DefaultDeliveryLocation extends AppiumBase {
 
     //Click
     public void clickSearchBox() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(searchBox)).click();
+        waitTillVisibleAndClick(searchBox);
     }
     public void clickSearchButton() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(searchButton)).click();
+        waitTillVisibleAndClick(searchButton);
     }
     public void clickAllLocation() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(allLocation)).click();
+        waitTillVisibleAndClick(allLocation);
     }
     public void clickPinCode370405() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(pinCode370405)).click();
+        waitTillVisibleAndClick(pinCode370405);
     }
     public void clickPinCode841301() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(pinCode841301)).click();
+        waitTillVisibleAndClick(pinCode841301);
     }
     public void clickPinCode800001() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(pinCode800001)).click();
+        waitTillVisibleAndClick(pinCode800001);
     }
     public void clickPinCode370465() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(pinCode370465)).click();
+        waitTillVisibleAndClick(pinCode370465);
     }
     public void clickPinCode370001() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(pinCode370001)).click();
+        waitTillVisibleAndClick(pinCode370001);
     }
 
     //Display
     public Boolean locationDisplayIsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(locationDisplay)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(locationDisplay);
     }
     public Boolean allLocationIsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(allLocation)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(allLocation);
     }
     public Boolean pinCode370405IsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(pinCode370405)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(pinCode370405);
     }
     public Boolean pinCode841301IsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(pinCode841301)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(pinCode841301);
     }
     public Boolean pinCode800001IsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(pinCode800001)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(pinCode800001);
     }
     public Boolean pinCode370465IsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(pinCode370465)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(pinCode370465);
     }
     public Boolean pinCode370001IsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(pinCode370001)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(pinCode370001);
     }
     public Boolean searchBoxIsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(searchBox)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(searchBox);
     }
     public Boolean searchButtonIsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(searchButton)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(searchButton);
     }
 
 }

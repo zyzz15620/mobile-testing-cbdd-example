@@ -1,18 +1,11 @@
 package pages;
 
 import core.AppiumBase;
-import io.appium.java_client.AppiumBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import stepdefs.Swipe;
-
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import core.Swipe;
 
 public class ProductPage extends AppiumBase {
     public ProductPage() {PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);}
@@ -50,5 +43,4 @@ public class ProductPage extends AppiumBase {
     public String getProductPrice() {
         return productPrice.getText();
     }
-
 }

@@ -5,8 +5,10 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import stepdefs.Swipe;
+import core.Swipe;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import static core.WaitTo.*;
 
 public class CartPage extends AppiumBase {
     public CartPage() {PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);}
@@ -34,33 +36,33 @@ public class CartPage extends AppiumBase {
 
     //Button is displayed
     public Boolean deleteButtonIsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(deleteButton)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(deleteButton);
     }
     public Boolean saveForLaterButtonIsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(saveForLaterButton)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(saveForLaterButton);
     }
     public Boolean usePromoCodeButtonIsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(usePromoCodeButton)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(usePromoCodeButton);
     }
     public Boolean continueButtonIsDisplayed() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(continueButton)).isDisplayed();
+        return waitTillVisibleAndIsDisplayed(continueButton);
     }
 
     //Get details
     public String getProductName() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(productName)).getText();
+        return waitTillVisibleAndGetText(productName);
     }
     public String getProductPrice() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(productPrice)).getText();
+        return waitTillVisibleAndGetText(productPrice);
     }
     public String getProductMeasurement() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(productMeasurement)).getText();
+        return waitTillVisibleAndGetText(productMeasurement);
     }
     public String getTotalPrice() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(totalPrice)).getText();
+        return waitTillVisibleAndGetText(totalPrice);
     }
     public String getProductQuantity() {
-        return getWebDriverWait().until(ExpectedConditions.visibilityOf(productQuantity)).getText();
+        return waitTillVisibleAndGetText(productQuantity);
     }
 
     //click
@@ -68,15 +70,15 @@ public class CartPage extends AppiumBase {
         getWebDriverWait().until(ExpectedConditions.visibilityOf(deleteButton)).click();
     }
     public void clickSaveForLaterButton() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(saveForLaterButton)).click();
+        waitTillVisibleAndClick(saveForLaterButton);
     }
     public void clickUsePromoCodeButton() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(usePromoCodeButton)).click();
+        waitTillVisibleAndClick(usePromoCodeButton);
     }
     public void clickContinueButton() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(continueButton)).click();
+        waitTillVisibleAndClick(continueButton);
     }
     public void clickContinueButtonWithAddress() {
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(continueButtonWithAddress)).click();
+        waitTillVisibleAndClick(continueButtonWithAddress);
     }
 }
